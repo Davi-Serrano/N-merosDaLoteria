@@ -1,22 +1,22 @@
 const BtnaddNumber = document.getElementById("add-number");
 var boxNumbers = document.getElementById("box");
 var numberOfBox = 6
-const myNumbers = [5,15,20,25,30,35]
+const myNumbers = []
 
 function addBox(){
     numberOfBox ++
 
-    if(numberofBox > 9){
+    if(numberOfBox > 9){
         BtnaddNumber.style.display = "none"
     }
 
    boxNumbers.innerHTML += `<p class="numbers"> ${numberOfBox} </p>`     
 }
 
-function changeNumbers(NumbersQuantify){
+function changeNumbers(){
     
-    for(let i = 0; i < NumbersQuantify; i++){
-        var numberAleaotry =  Math.floor(Math.random() * 60)
+    for(let i = 0; i < 6; i++){
+        var numberAleaotry = Math.floor(Math.random() * 60)
 
         if(numberAleaotry === 0) {
             numberAleaotry = 1
@@ -24,14 +24,22 @@ function changeNumbers(NumbersQuantify){
       
         myNumbers.push(numberAleaotry)
     }
+
+    return myNumbers
 }
 
+
 function sortButton(){
+    const numbers = changeNumbers()
+
     const Numbers = document.querySelectorAll(".numbers")
 
     BtnaddNumber.style.display = "none"
 
-    Numbers.forEach( (numb)=>{
-        numb.innerText = "55"
+    const NumbersInArray = Array.from(Numbers)
+    
+    NumbersInArray.map( (num, i)=>{
+        num.innerHTML = `<p>${numbers[i]} </p>`
     })
+
 }
