@@ -1,7 +1,8 @@
 const BtnaddNumber = document.getElementById("add-number");
 var boxNumbers = document.getElementById("box");
+const sortBtn = document.getElementById("changeButton");
 var numberOfBox = 6
-const myNumbers = []
+const myNumbers = [];
 
 function addBox(){
     numberOfBox ++
@@ -13,9 +14,8 @@ function addBox(){
    boxNumbers.innerHTML += `<p class="numbers"> ${numberOfBox} </p>`     
 }
 
-function changeNumbers(){
-    
-    for(let i = 0; i < 6; i++){
+function changeNumbers(quantifyOfNumbers){
+    for(let i = 0; i < quantifyOfNumbers; i++){
         var numberAleaotry = Math.floor(Math.random() * 60)
 
         if(numberAleaotry === 0) {
@@ -28,9 +28,8 @@ function changeNumbers(){
     return myNumbers
 }
 
-
 function sortButton(){
-    const numbers = changeNumbers()
+    const numbers = changeNumbers(numberOfBox)
 
     const Numbers = document.querySelectorAll(".numbers")
 
@@ -41,5 +40,7 @@ function sortButton(){
     NumbersInArray.map( (num, i)=>{
         num.innerHTML = `<p>${numbers[i]} </p>`
     })
-
 }
+
+sortBtn.addEventListener("click", sortButton)
+
