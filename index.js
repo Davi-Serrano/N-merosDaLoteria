@@ -1,6 +1,8 @@
-const BtnaddNumber = document.getElementById("add-number");
 var boxNumbers = document.getElementById("box");
 const sortBtn = document.getElementById("changeButton");
+const saveBtn = document.getElementById("save");
+const cancelBtn = document.getElementById("cancel");
+const BtnaddNumber = document.getElementById("add-number");
 var numberOfBox = 6
 const myNumbers = [];
 
@@ -30,7 +32,6 @@ function changeNumbers(quantifyOfNumbers){
 
 function sortButton(){
     const numbers = changeNumbers(numberOfBox)
-
     const Numbers = document.querySelectorAll(".numbers")
 
     BtnaddNumber.style.display = "none"
@@ -40,7 +41,27 @@ function sortButton(){
     NumbersInArray.map( (num, i)=>{
         num.innerHTML = `<p>${numbers[i]} </p>`
     })
+
+    hiddenDrawBtnAndShowSaveAndCancelBtn()
+}
+
+function hiddenDrawBtnAndShowSaveAndCancelBtn(){
+    sortBtn.style.display = "none"
+    saveBtn.style.display = "block"
+    cancelBtn.style.display = "block"
+    
+} 
+
+function reloadPage(){
+    location.reload()
+}
+
+function saveNumberDrawed(){
+    window.alert("Numeros salvados")
+
+    reloadPage()
 }
 
 sortBtn.addEventListener("click", sortButton)
-
+cancelBtn.addEventListener("click", reloadPage)
+saveBtn.addEventListener("click", saveNumberDrawed)
