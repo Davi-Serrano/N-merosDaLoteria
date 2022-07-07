@@ -131,6 +131,11 @@ h2::before{
     position: relative;
 }
 
+#save, #cancel{
+  display: none;
+  margin: 0.5em;
+}
+
 .neon-btn::before{
   pointer-events: none;
   content: "";
