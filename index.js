@@ -23,7 +23,11 @@ function changeNumbers(quantifyOfNumbers){
         if(numberAleaotry === 0) {
             numberAleaotry = 1
         }
-      
+        
+        if(myNumbers[i] === numberAleaotry){
+            numberAleaotry ++
+        }
+
         myNumbers.push(numberAleaotry)
     }
 
@@ -49,7 +53,6 @@ function hiddenDrawBtnAndShowSaveAndCancelBtn(){
     sortBtn.style.display = "none"
     saveBtn.style.display = "block"
     cancelBtn.style.display = "block"
-    
 } 
 
 function reloadPage(){
@@ -57,8 +60,8 @@ function reloadPage(){
 }
 
 function saveNumberDrawed(){
-    window.alert("Numeros salvados")
-
+    alert("Salvo com sucesso")
+    localStorage.setItem('meuGato', myNumbers);
     reloadPage()
 }
 
