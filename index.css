@@ -1,4 +1,4 @@
-  *,
+*,
   *::after,
   *::before{
     box-sizing: border-box;
@@ -180,4 +180,50 @@ h2::before{
 .neon-btn:focus{
   color: #202631;
   text-shadow: none;
+}
+
+@media (max-width: 950px){
+    h2{
+      font-size: 30px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container{
+      padding: 0;
+      justify-content: space-around;
+      min-height: 90vh;
+    }
+
+    #box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content:center;
+      align-items: center;
+      padding: 0;
+      height: auto;
+      max-width: 80vw;
+
+  }
+  .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+
+  }
+  .numbers{
+    width: 60px;
+    height: 60px;
+    margin: .5em;
+    padding: 16px;
+    border-radius: 16px;
+  
+  }
+
+  .neon-btn{
+    margin: 2em 0;
+    padding: 16px;
+
+  }
 }
